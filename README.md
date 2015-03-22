@@ -1,7 +1,7 @@
 # Countdown
 
 ```javascript
-var Countdown = require('countdown');
+var Countdown = require('cuentatras');
 
 var countdown = new Countdown(new Date(2016,01,01));
 

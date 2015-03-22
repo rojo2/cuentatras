@@ -1,0 +1,43 @@
+function Countdown(end,current) {
+  this.end = end;
+  this.current = current || new Date();
+  this.update();
+}
+
+function format(v,c) {
+  c = c || 2;
+  v = v.toString();
+  while (v.length < c) {
+    v = '0' + v;
+  }
+  return v;
+}
+
+Countdown.prototype = {
+  constructor: Countdown,
+
+  current: null,
+  end: null,
+
+  seconds: null,
+  minutes: null,
+  hours: null,
+  days: null,
+
+  diff: null,
+
+  update: function() {
+    var diff = (this.end - this.current) / 1000;
+
+    this.seconds = Math.round(diff % 60);
+    this.minutes = Math.floor(diff / 60) % 60;
+    this.hours = Math.floor(diff / 3600) % 24;
+    this.days = Math.floor(diff / 86400);
+  },
+
+  toString: function() {
+    return format(this.days, 2) + ':' + format(this.hours) + ':' + format(this.minutes) + ':' + format(this.seconds);
+  }
+};
+
+module.exports = Countdown;

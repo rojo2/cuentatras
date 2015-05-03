@@ -20,7 +20,9 @@ Countdown.prototype = {
   end: null,
 
   seconds: null,
+  totalMinutes: null,
   minutes: null,
+  totalHours: null,
   hours: null,
   days: null,
 
@@ -30,12 +32,15 @@ Countdown.prototype = {
     var diff = (this.end - this.current) / 1000;
 
     this.seconds = Math.round(diff % 60);
-    this.minutes = Math.floor(diff / 60) % 60;
-    this.hours = Math.floor(diff / 3600) % 24;
+    this.totalMinutes = Math.floor(diff / 60);
+    this.minutes = this.totalMinutes % 60;
+    this.totalHours = Math.floor(diff / 3600);
+    this.hours = this.totalHours % 24;
     this.days = Math.floor(diff / 86400);
   },
 
-  toString: function() {
+  toString: function(fmt) {
+    /(?:([0-9]+d):)?(?:([0-9]+m):)?/
     return format(this.days, 2) + ':' + format(this.hours) + ':' + format(this.minutes) + ':' + format(this.seconds);
   }
 };

@@ -1,4 +1,4 @@
-function Countdown(end,current) {
+function Countdown(end, current) {
   this.end = end;
   this.current = current || new Date();
   this.update();
@@ -40,7 +40,7 @@ Countdown.prototype = {
   },
 
   toString: function(fmt) {
-    /(?:([0-9]+d):)?(?:([0-9]+m):)?/
+    ///(?:([0-9]+d):)?(?:([0-9]+m):)?/
     return format(this.days, 2) + ':' + format(this.hours) + ':' + format(this.minutes) + ':' + format(this.seconds);
   }
 };

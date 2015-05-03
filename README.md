@@ -1,4 +1,4 @@
-# Countdown
+# Cuentatras
 
 ```javascript
 var Countdown = require('cuentatras');
